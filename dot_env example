@@ -1,0 +1,7 @@
+
+GEMINI_API_KEY=AIzxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+DB_HOST=localhost
+DB_USER=sqlai_tester
+DB_PASSWORD=test_password
+DB_NAME=sqlai_test_db
