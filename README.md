@@ -2,6 +2,8 @@
 
 SQL-AI-Agent is an intelligent assistant that enables natural language interaction with a MySQL database. Leveraging a Large Language Model (LLM), it translates user queries into SQL commands, executes them, and returns the results seamlessly. This tool simplifies database querying, making it accessible even to those without SQL expertise.
 
+<img src="https://github.com/user-attachments/assets/951ef8c2-ad50-4b37-a09d-b9be2cc6f91f" width="300"/>
+
 ## 🚀 Features
 
 *   **Natural Language to SQL:** Converts plain English queries into SQL statements.
