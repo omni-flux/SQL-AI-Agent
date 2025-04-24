@@ -19,7 +19,7 @@ try:
     gemini_api_key = os.environ.get("GEMINI_API_KEY"); assert gemini_api_key, "GEMINI_API_KEY not found."
     genai.configure(api_key=gemini_api_key)
 except Exception as config_err: log.critical(f"Config Error: {config_err}", exc_info=True); print(f"FATAL: {config_err}"); exit(1)
-MODEL_NAME = "gemini-1.5-flash"
+MODEL_NAME = "gemini-2.0-flash"
 generation_config = {"temperature": 0.4, "top_p": 0.95, "top_k": 64, "max_output_tokens": 8192, "response_mime_type": "text/plain"}
 SAFETY_SETTINGS = [ {"category": c, "threshold": "BLOCK_MEDIUM_AND_ABOVE"} for c in ["HARM_CATEGORY_HARASSMENT", "HARM_CATEGORY_HATE_SPEECH", "HARM_CATEGORY_SEXUALLY_EXPLICIT", "HARM_CATEGORY_DANGEROUS_CONTENT"]]
 BASE_SYSTEM_PROMPT = BASE_SYSTEM_PROMPT

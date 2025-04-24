@@ -50,7 +50,6 @@ async def lifespan(_app: FastAPI): # Changed 'app' to '_app'
         print(f"FATAL ERROR: {error_msg}")
         yield # Must yield control once
         log.warning("Application shutting down (startup failed).")
-        # Removed explicit 'return' here, function ends naturally
         return # Removed explicit return None here
 
     # Proceed with initialization if no early errors
@@ -78,7 +77,6 @@ async def lifespan(_app: FastAPI): # Changed 'app' to '_app'
         log.critical(app_state["initialization_error"], exc_info=True)
         print(f"\nFATAL STARTUP ERROR: {app_state['initialization_error']}")
         traceback.print_exc()
-        # Proceed to yield even if init fails, so server starts and reports error via health check
 
     # --- App runs here ---
     yield
@@ -87,7 +85,6 @@ async def lifespan(_app: FastAPI): # Changed 'app' to '_app'
     print("\n--- Server Shutting Down ---")
     app_state["chat_session"] = None # Clear state on shutdown
     app_state["initialized"] = False
-    # No explicit return needed here either, implicitly returns None
 
 # --- FastAPI App ---
 # Define the global 'app' instance *after* the lifespan function
@@ -140,5 +137,4 @@ async def chat_endpoint(user_input: UserInput):
 # --- Run Server ---
 if __name__ == "__main__":
     print("Starting FastAPI server via uvicorn...")
-    # Make sure to reference the global 'app' instance here
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
